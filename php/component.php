@@ -1,7 +1,7 @@
 
 <?php
 
- function component($produtname, $productprice, $productimage){
+ function component($produtname, $productprice, $productimage, $productid){
 
  	$element = "
 
@@ -28,16 +28,20 @@
 							</p>
 
 							<h5>
-								<small class=\"text-secondary\"><s>$$productprice</s></small>
+								<small class=\"text-secondary\"><s>$199</s></small>
 
 							    <span class=\"price\">
-								  $599
+								  $productprice
 							    </span>
 							</h5>
+
+                            <input type='hidden' name='product_id' value='$productid'>
 
 							<button type=\"submit\" class=\"btn btn-warning my-3\" name=\"add\">Add to cart 
 								<i class=\"fas fa-shopping-cart\"></i>
 							</button>
+
+
 						</div>
 					</div>
 				</form>
@@ -50,6 +54,49 @@
  	 echo $element;
  }
 
+
+
+
+  function cartElement($productimage, $produtname, $productprice,$productid){
+
+  	 $element = "<form action=\"cart.php?action=remove&id=$productid\" method=\"post\" class=\"cart-items\">
+	 					
+	 					<div class=\"border-rounded\">
+	 						<div class=\"row bg-white\">
+	 							<div class=\"col-md-3 py-3 pl-0\">
+	 								<img src=\"$productimage\" alt=\"Image1\" class=\"img-fluid\">
+	 							</div>
+	 							<div class=\"col-md-6\">
+	 								<h5 class=\"pt-2\">$produtname</h5>
+	 								<small class=\"text-secondary\">
+	 								   Seller: dailytution
+	 								</small>
+	 								<h5 class=\"pt-2\">$$productprice</h5>
+
+	 								<button type=\"submit\" class=\"btn btn-warning\">
+	 									Save for Later
+	 								</button>
+
+	 								<button type=\"submit\" class=\"btn btn-danger mx-2\" name=\"remove\">
+	 									Remove
+	 								</button>
+	 							</div>
+	 							<div class=\"col-md-3 py-5\">
+	 								<div>
+	 									<button type=\"button\" class=\"btn btn bg-light border rounded-circle\"><i class=\"fas fa-minus\"></i></button>
+
+	 									<input type=\"text\" value=\"1\"  class=\"form-control w-25 d-inline\">
+
+	 								    <button type=\"button\" class=\"btn btn bg-light border rounded-circle\"><i class=\"fas fa-plus\"></i></button>
+	 								</div>
+	 							</div>
+	 						</div>
+	 					</div>
+	 				</form>";
+
+
+	 	echo $element;
+  }
 
 
 

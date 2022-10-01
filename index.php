@@ -1,12 +1,62 @@
 
 <?php
+
+// Start Session
+  session_start();
+
   require_once('php/component.php');
 
   require_once('php/classDb.php');
 
   // Creating instance of my classdb
 
-  $database = new CreatDb();
+  $database = new CreatDb("ProductDb", "ProductTb");
+
+
+  if (isset($_POST['add'])) {
+  	
+  	// print_r($_POST['product_id']);
+
+  	if (isset($_SESSION['cart'])) {
+  		
+  		$item_array_id = array_column($_SESSION['cart'], "product_id");
+
+  		// checking product existence in the cart
+
+  		if (in_array($_POST['product_id'], $item_array_id)) {
+  			
+  			echo"<script>alert('Product is already in the cart! ')</script>";
+
+  			echo "<script>window.location = 'index.php'</script>";
+  		}else{
+
+  			$count = count($_SESSION['cart']);
+
+  		    $item_array = array(
+
+  		       'product_id' => $_POST['product_id']
+  		    );
+
+  		    $_SESSION['cart'][$count] = $item_array;
+
+  		}
+
+
+
+  	}else{
+
+  		$item_array = array(
+
+  			'product_id' => $_POST['product_id']
+  		);
+
+  		// Craeting New Session Variable
+
+  		$_SESSION['cart'][0] = $item_array;
+
+  		// print_r($_SESSION['cart']);
+  	}
+  }
 ?>
 
 <!DOCTYPE html>
@@ -28,16 +78,32 @@
 <body>
 
 
+	<?php
+
+      require_once('php/header.php');
+	?>
+
+
 	<div class="container">
 		<div class="row text-center py-5">
 
          <?php
            
-           component("Product1"," 599"," uploads/image1.jpg");
+           // component("Product1"," 599"," uploads/image1.jpg");
 
-           component("Product2"," 999"," uploads/image2.jpg");
-           component("Product3"," 1099"," uploads/image3.jpg");
-           component("Product4"," 2099"," uploads/image4.jpg");
+           // component("Product2"," 999"," uploads/image2.jpg");
+           // component("Product3"," 1099"," uploads/image3.jpg");
+           // component("Product4"," 2099"," uploads/image4.jpg");
+
+
+           $result = $database->getData();
+
+           while ($row = mysqli_fetch_assoc($result)) {
+           	
+           	 component($row['product_name'], $row['product_price'], $row['product_img'], $row['id']);
+
+
+           }
          ?>
 
 			

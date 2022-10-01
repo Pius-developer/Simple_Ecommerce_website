@@ -10,3 +10,21 @@ img{
 	color: yellowgreen;
 	padding: 3% 0;
 }
+
+#span-count{
+	text-align: center;
+	padding: 0 0.9rem 0.4rem 0.9rem;
+	border-radius: 3rem;
+}
+
+.shopping-cart{
+	padding: 5% 0;
+}
+
+.cart-items + .cart-items{
+	padding: 3% 0;
+}
+
+.price-details{
+	padding: 3% 2%;
+}
