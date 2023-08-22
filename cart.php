@@ -11,7 +11,7 @@
 
   $db = new CreatDb("ProductDb", "ProductTb");
 
-
+// Remove form cart
   if (isset($_POST['remove'])) {
   	
   	if ($_GET['action']== 'remove') {
