@@ -8,7 +8,7 @@
 
    require_once ('php/component.php');
 
-
+// database connection
   $db = new CreatDb("ProductDb", "ProductTb");
 
 // Remove form cart
