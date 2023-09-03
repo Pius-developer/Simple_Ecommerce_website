@@ -1,13 +1,11 @@
 
 <?php
-
 // Start Session
   session_start();
 
   require_once('php/component.php');
 
   require_once('php/classDb.php');
-
   // Creating instance of my classdb
 
   $database = new CreatDb("ProductDb", "ProductTb");
