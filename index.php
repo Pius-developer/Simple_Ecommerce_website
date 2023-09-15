@@ -72,8 +72,6 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-
-
 	<?php
 
       require_once('php/header.php');
