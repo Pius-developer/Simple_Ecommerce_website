@@ -22,8 +22,6 @@ public function __construct(
 	$username = "root",
 	$password = ""
 	
-
-
 )
 {
 
