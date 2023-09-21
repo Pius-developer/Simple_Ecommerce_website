@@ -1,5 +1,3 @@
-
-
 <?php
    
    session_start();
@@ -91,8 +89,6 @@
                        } else{
                        	echo "<h5>Cart is Empty</h5>";
                        }
-
-
 	 				?>
 
 	 				
