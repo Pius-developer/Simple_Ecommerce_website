@@ -47,14 +47,10 @@
 				
 			</div>
 
-
  	";
 
  	 echo $element;
  }
-
-
-
 
   function cartElement($productimage, $produtname, $productprice,$productid){
 
