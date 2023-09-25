@@ -36,9 +36,6 @@
   		    $_SESSION['cart'][$count] = $item_array;
 
   		}
-
-
-
   	}else{
 
   		$item_array = array(
